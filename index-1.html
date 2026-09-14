@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScanGallery — Scan. View. Share.</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f8fc;color:#172033}
+header{padding:18px 7%;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #e7e9ef}
+.logo{font-size:24px;font-weight:800}.logo span{color:#6b4eff}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+.primary{background:#6b4eff;color:#fff}.light{background:#eef0f7;color:#172033}
+.hero{padding:70px 7%;text-align:center;background:linear-gradient(180deg,#fff,#f7f8fc)}
+h1{font-size:clamp(38px,7vw,68px);margin:10px 0}.hero p{font-size:20px;color:#667085;max-width:650px;margin:18px auto 28px}
+.badge{display:inline-block;background:#eeeaff;color:#5740d8;padding:8px 14px;border-radius:999px;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:35px 7%;max-width:1100px;margin:auto}
+.card{background:#fff;border:1px solid #e7e9ef;border-radius:18px;padding:24px;box-shadow:0 8px 25px rgba(20,20,50,.05)}
+.card b{font-size:18px}.card p{color:#667085;line-height:1.5}
+.demo{max-width:900px;margin:10px auto 60px;background:#fff;border-radius:22px;padding:28px;border:1px solid #e7e9ef}
+.row{display:flex;gap:12px;flex-wrap:wrap}.input{flex:1;min-width:220px;padding:13px;border:1px solid #d9dce5;border-radius:12px}
+.gallery{display:none;margin-top:22px}.gallery img{width:100%;border-radius:15px;max-height:280px;object-fit:cover}
+footer{text-align:center;padding:30px;color:#667085}
+</style>
+</head>
+<body>
+<header><div class="logo">Scan<span>Gallery</span></div><button class="btn light" onclick="alert('Login system will be connected in the next version.')">Login</button></header>
+<section class="hero">
+<div class="badge">500 MB Free Storage</div>
+<h1>Scan. View. Share.</h1>
+<p>Create a photo/video gallery, generate a QR code, and let your clients view it instantly without an account.</p>
+<button class="btn primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Create Gallery</button>
+</section>
+<section class="cards">
+<div class="card"><b>📸 Photo & Video</b><p>Keep your client photos and videos together in one clean gallery.</p></div>
+<div class="card"><b>🔗 QR Sharing</b><p>Every gallery gets its own share link and QR code.</p></div>
+<div class="card"><b>🔒 Owner Control</b><p>Turn sharing on or off whenever you want.</p></div>
+<div class="card"><b>📱 Mobile Friendly</b><p>Clients can open galleries easily on their phones.</p></div>
+</section>
+<section class="demo" id="demo">
+<h2>Demo Gallery</h2>
+<div class="row">
+<input class="input" id="name" value="Bao G Fresh Flower Toba" placeholder="Gallery name">
+<button class="btn primary" onclick="createDemo()">Create Demo</button>
+</div>
+<div class="gallery" id="gallery">
+<h3 id="galleryName"></h3>
+<p>QR sharing preview • Gallery status: <b>ON</b></p>
+<img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80" alt="Flowers">
+</div>
+</section>
+<footer>© 2026 ScanGallery — Scan. View. Share.</footer>
+<script>
+function createDemo(){
+ document.getElementById('galleryName').textContent=document.getElementById('name').value||'My Gallery';
+ document.getElementById('gallery').style.display='block';
+}
+</script>
+</body>
+</html>
